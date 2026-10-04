@@ -1,0 +1,746 @@
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>For Soniii ❤️</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #fff5f7;
+        color: #4b2632;
+        overflow-x: hidden;
+      }
+
+      /* =========================
+   LOADING / OPENING SCREEN
+========================= */
+
+      .opening {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(135deg, #ffd9e5, #fff4f7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        z-index: 9999;
+        transition: 1s ease;
+      }
+
+      .opening-content {
+        padding: 30px;
+      }
+
+      .opening-heart {
+        font-size: 80px;
+        animation: heartbeat 1.5s infinite;
+      }
+
+      .opening h1 {
+        font-size: 42px;
+        color: #c94069;
+        margin: 20px 0;
+      }
+
+      .opening p {
+        font-size: 18px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+      }
+
+      .open-btn {
+        border: none;
+        padding: 16px 35px;
+        border-radius: 50px;
+        background: #d84d76;
+        color: white;
+        font-size: 17px;
+        cursor: pointer;
+        box-shadow: 0 10px 25px rgba(216, 77, 118, 0.3);
+        transition: 0.3s;
+      }
+
+      .open-btn:hover {
+        transform: scale(1.05);
+      }
+
+      /* =========================
+   GENERAL
+========================= */
+
+      section {
+        min-height: 100vh;
+        padding: 80px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 850px;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 38px;
+        color: #c63f68;
+        margin-bottom: 35px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 35px 25px;
+        border-radius: 30px;
+        box-shadow: 0 15px 45px rgba(190, 70, 100, 0.12);
+      }
+
+      /* =========================
+   HERO
+========================= */
+
+      .hero {
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top, #ffdce7, transparent 50%), #fff6f8;
+      }
+
+      .hero-small {
+        letter-spacing: 4px;
+        font-size: 15px;
+        color: #a75b72;
+        margin-bottom: 20px;
+      }
+
+      .hero h1 {
+        font-size: clamp(50px, 12vw, 95px);
+        color: #d84770;
+      }
+
+      .hero-name {
+        font-size: 28px;
+        margin-top: 10px;
+        color: #a93256;
+        font-weight: bold;
+      }
+
+      .hero-text {
+        margin-top: 30px;
+        font-size: 21px;
+        line-height: 1.8;
+      }
+
+      .scroll {
+        margin-top: 60px;
+        color: #9e6a7a;
+        animation: bounce 2s infinite;
+      }
+
+      /* =========================
+   LOVE LETTER
+========================= */
+
+      .letter {
+        font-family: Georgia, serif;
+        font-size: 20px;
+        line-height: 2;
+        text-align: left;
+      }
+
+      .letter .signature {
+        text-align: right;
+        margin-top: 30px;
+        font-style: italic;
+      }
+
+      /* =========================
+   REASONS
+========================= */
+
+      .reasons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+      }
+
+      .reason {
+        padding: 25px 15px;
+        background: white;
+        border-radius: 22px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        font-size: 17px;
+      }
+
+      .reason span {
+        display: block;
+        font-size: 35px;
+        margin-bottom: 10px;
+      }
+
+      /* =========================
+   PHOTO SECTION
+========================= */
+
+      .photo-card {
+        margin-top: 20px;
+        border-radius: 28px;
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .photo-card img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .photo-caption {
+        padding: 20px;
+        font-size: 18px;
+      }
+
+      /* =========================
+   TIMELINE
+========================= */
+
+      .timeline {
+        position: relative;
+        margin-top: 30px;
+      }
+
+      .timeline-item {
+        background: white;
+        margin: 25px 0;
+        padding: 25px;
+        border-radius: 22px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        text-align: left;
+      }
+
+      .timeline-item h3 {
+        color: #cf456b;
+        margin-bottom: 10px;
+      }
+
+      /* =========================
+   SECRET
+========================= */
+
+      .secret-section {
+        background: linear-gradient(135deg, #ffe1eb, #fff5f8);
+      }
+
+      .secret-box {
+        padding: 40px 25px;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 30px;
+      }
+
+      .secret-btn {
+        border: none;
+        padding: 16px 32px;
+        border-radius: 50px;
+        background: #d84871;
+        color: white;
+        font-size: 17px;
+        cursor: pointer;
+        margin-top: 25px;
+      }
+
+      #secretMessage {
+        display: none;
+        margin-top: 30px;
+        font-size: 20px;
+        line-height: 1.9;
+        animation: fadeIn 1s ease;
+      }
+
+      /* =========================
+   FINAL
+========================= */
+
+      .final {
+        background:
+          radial-gradient(circle at center, #ffd8e4, transparent 60%), #fff1f5;
+      }
+
+      .final-heart {
+        font-size: 90px;
+        animation: heartbeat 1.5s infinite;
+      }
+
+      .final h2 {
+        font-size: 45px;
+        color: #c63d67;
+        margin: 25px 0;
+      }
+
+      .final p {
+        font-size: 20px;
+        line-height: 1.8;
+      }
+
+      .signature-final {
+        margin-top: 40px;
+        font-size: 22px;
+        font-family: Georgia, serif;
+      }
+
+      /* =========================
+   HEARTS
+========================= */
+
+      .heart {
+        position: fixed;
+        bottom: -30px;
+        pointer-events: none;
+        z-index: 1000;
+        animation: floatUp linear forwards;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) scale(0.8);
+          opacity: 0;
+        }
+
+        20% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(-110vh) scale(1.4);
+          opacity: 0;
+        }
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.15);
+        }
+      }
+
+      @keyframes bounce {
+        50% {
+          transform: translateY(10px);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* =========================
+   MOBILE
+========================= */
+
+      @media (max-width: 600px) {
+        .section-title {
+          font-size: 31px;
+        }
+
+        .reasons {
+          grid-template-columns: 1fr;
+        }
+
+        .photo-card img {
+          height: 320px;
+        }
+
+        .letter {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ==================================
+     OPENING SCREEN
+================================== -->
+
+    <div class="opening" id="opening">
+      <div class="opening-content">
+        <div class="opening-heart">💗</div>
+
+        <h1>Hey Bacchuu...</h1>
+
+        <p>
+          I made something little for you.
+          <br />
+          But it comes with a warning...
+          <br /><br />
+          You might smile a lot. 🥹
+        </p>
+
+        <button class="open-btn" onclick="openSurprise()">
+          Open Your Surprise 🎁
+        </button>
+      </div>
+    </div>
+
+    <!-- ==================================
+     HERO
+================================== -->
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-small">TODAY IS ALL ABOUT YOU</div>
+
+        <h1>Happy Birthday</h1>
+
+        <div class="hero-name">Sonii❤️</div>
+
+        <p class="hero-text">
+          Today the world celebrates the day you were born...
+
+          <br /><br />
+
+          But I'm celebrating something more.
+
+          <br />
+
+          <strong> I'm celebrating having you in my life. </strong>
+        </p>
+
+        <div class="scroll">↓ There's more ↓</div>
+      </div>
+    </section>
+
+    <!-- ==================================
+     LOVE LETTER
+================================== -->
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">From My Heart 💌</h2>
+
+        <div class="card letter">
+          <p>Dear Soniii,</p>
+
+          <br />
+
+          <p>
+            I don't know if I'll ever find the perfect words to explain what you
+            mean to me. But today, I want to try.
+          </p>
+
+          <br />
+
+          <p>You slowly became one of the most beautiful parts of my life.</p>
+
+          <br />
+
+          <p>
+            It's not just the big moments. It's the random conversations, the
+            silly things, the little smiles, and all those moments that probably
+            don't mean much to anyone else.
+          </p>
+
+          <br />
+
+          <p>Somehow, those moments mean everything to me.</p>
+
+          <br />
+
+          <p>Thank you for being you.</p>
+
+          <p class="signature">— Your Omiii ❤️</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================
+     REASONS
+================================== -->
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Why You're So Special ❤️</h2>
+
+        <div class="reasons">
+          <div class="reason">
+            <span>😊</span>
+            Your smile can instantly make my day better.
+          </div>
+
+          <div class="reason">
+            <span>🫶</span>
+            You care in ways you probably don't even notice.
+          </div>
+
+          <div class="reason">
+            <span>✨</span>
+            You make ordinary moments feel special.
+          </div>
+
+          <div class="reason">
+            <span>🥹</span>
+            You have a way of making me feel understood.
+          </div>
+
+          <div class="reason">
+            <span>🌸</span>
+            You're beautiful inside and out.
+          </div>
+
+          <div class="reason">
+            <span>❤️</span>
+            And honestly... you're just you.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================
+     PHOTO
+================================== -->
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">One Of My Favourite Views 📸</h2>
+
+        <div class="photo-card">
+          <!--
+        Replace "your-photo.jpg"
+        with your actual photo file name.
+        -->
+
+          <img src="us.jpg" alt="Our Memory" />
+
+          <div class="photo-caption">
+            Some memories become special simply because of the person with you.
+            ❤️
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================
+     MEMORIES
+================================== -->
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Little Moments, Big Memories ✨</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>🌸 The Beginning</h3>
+
+            <p>
+              This is where our story started. And honestly, I had no idea how
+              special it would become.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>😂 The Random Moments</h3>
+
+            <p>
+              The silly conversations, random jokes and moments that made us
+              laugh for no reason.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>❤️ The Moments I Keep Close</h3>
+
+            <p>
+              Some moments don't need a photograph. They're already saved
+              somewhere much more important — in my heart.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================
+     SECRET MESSAGE
+================================== -->
+
+    <section class="secret-section">
+      <div class="container">
+        <h2 class="section-title">I Have One More Thing To Say... 👀</h2>
+
+        <div class="secret-box">
+          <p style="font-size: 20px">But you have to press the button first.</p>
+
+          <button class="secret-btn" onclick="showSecret()">
+            Open My Secret 💗
+          </button>
+
+          <div id="secretMessage">
+            <p>If I could give you one thing on your birthday...</p>
+
+            <br />
+
+            <p>I would give you the ability to see yourself through my eyes.</p>
+
+            <br />
+
+            <p>
+              Because then you would finally understand how incredibly
+              beautiful, precious and special you are to me.
+            </p>
+
+            <br />
+
+            <p>And if life gives me the choice...</p>
+
+            <br />
+
+            <strong>
+              I want to be there for many more birthdays of yours. ❤️
+            </strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================
+     FINAL
+================================== -->
+
+    <section class="final">
+      <div class="container">
+        <div class="final-heart">❤️</div>
+
+        <h2>Happy Birthday, Sonii❤️</h2>
+
+        <p>
+          May this new year of your life bring you endless happiness,
+
+          <br />
+
+          beautiful memories,
+
+          <br />
+
+          and everything your heart wishes for.
+        </p>
+
+        <br />
+
+        <p>
+          Keep smiling.
+
+          <br />
+
+          Keep shining.
+
+          <br />
+
+          And please...
+
+          <br />
+
+          <strong> never stop being the amazing person you are. </strong>
+        </p>
+
+        <div class="signature-final">
+          With all my love,
+
+          <br />
+
+          ❤️ Omiii ❤️
+        </div>
+      </div>
+    </section>
+
+    <footer>Made especially for My Love ❤️</footer>
+
+    <script>
+      /* =========================
+   OPEN SURPRISE
+========================= */
+
+      function openSurprise() {
+        document.getElementById("opening").style.opacity = "0";
+
+        setTimeout(function () {
+          document.getElementById("opening").style.display = "none";
+        }, 1000);
+
+        createHearts(20);
+      }
+
+      /* =========================
+   SECRET MESSAGE
+========================= */
+
+      function showSecret() {
+        document.getElementById("secretMessage").style.display = "block";
+
+        createHearts(40);
+      }
+
+      /* =========================
+   FLOATING HEARTS
+========================= */
+
+      function createHearts(amount) {
+        for (let i = 0; i < amount; i++) {
+          const heart = document.createElement("div");
+
+          heart.className = "heart";
+
+          const heartTypes = ["❤️", "💕", "💗", "💖", "💘", "💞"];
+
+          heart.innerHTML =
+            heartTypes[Math.floor(Math.random() * heartTypes.length)];
+
+          heart.style.left = Math.random() * 100 + "vw";
+
+          heart.style.fontSize = 15 + Math.random() * 25 + "px";
+
+          heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+
+          document.body.appendChild(heart);
+
+          setTimeout(function () {
+            heart.remove();
+          }, 8000);
+        }
+      }
+
+      /* =========================
+   RANDOM HEARTS
+========================= */
+
+      setInterval(function () {
+        createHearts(1);
+      }, 1500);
+    </script>
+  </body>
+</html>
+```
